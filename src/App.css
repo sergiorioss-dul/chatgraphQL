@@ -1,0 +1,9 @@
+body {
+  background-color: white;
+  display: contents !important;
+}
+
+.usercard:hover {
+  background-color: white;
+  cursor: pointer;
+}

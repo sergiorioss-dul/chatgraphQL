@@ -40,7 +40,8 @@ export const ChatScreen = () => {
 
   useEffect(() => {
     // eslint-disable-next-line
-    listRef.current?.lastElementChild?.scrollIntoView();
+    const listR: any = listRef;
+    listR.current?.lastElementChild?.scrollIntoView();
   }, [messages]);
   const paramId = id ? id : '0';
 

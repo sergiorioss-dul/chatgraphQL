@@ -8,7 +8,7 @@ import { GETALL_USERS } from '../graphql/querys';
 import { TypeItem } from './models';
 
 export const SideBar: FC<ISideBarProps> = ({ setLoggedIn }) => {
-  const { loading, data, error } = useQuery(GETALL_USERS);
+  const { loading, data } = useQuery(GETALL_USERS);
   if (loading) return <Typography variant="h6">Loading chats</Typography>;
 
   return (

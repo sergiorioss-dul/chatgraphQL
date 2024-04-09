@@ -4,7 +4,7 @@ import { AuthScreen } from './pages/AuthScreen';
 import { HomeScreen } from './pages/HomeScreen';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(
+  const [loggedIn, setLoggedIn] = useState<boolean>(
     localStorage.getItem('jwt') ? true : false
   );
   return (

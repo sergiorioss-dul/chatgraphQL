@@ -19,12 +19,12 @@ import { IMessage } from './models';
 
 export const ChatScreen = () => {
   const listRef = useRef(null);
-  const { id, name } = useParams();
+  const { id, name } = useParams<{ id?: string; name?: string }>();
   const [text, setText] = useState('');
   const [messages, setMessages] = useState([]);
   const { loading } = useQuery(GET_MESSAGES, {
     variables: {
-      receiverId: +id,
+      receiverId: id ? +id : 0,
     },
     onCompleted(data) {
       setMessages(data.messageByUser);
@@ -34,13 +34,16 @@ export const ChatScreen = () => {
 
   useSubscription(MESSAGE_SUB, {
     onSubscriptionData({ subscriptionData: { data } }) {
+      // eslint-disable-next-line
       setMessages((prevMessages) => [...prevMessages, data.messageAdded]);
     },
   });
 
   useEffect(() => {
+    // eslint-disable-next-line
     listRef.current?.lastElementChild?.scrollIntoView();
   }, [messages]);
+  const paramId = id ? id : '0';
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -75,7 +78,7 @@ export const ChatScreen = () => {
                 <MessageCard
                   text={msg.text}
                   date={msg.createdAt}
-                  direction={msg.receiverId == +id ? 'end' : 'start'}
+                  direction={+msg.receiverId == +paramId ? 'end' : 'start'}
                 />
               </div>
             );
@@ -97,7 +100,7 @@ export const ChatScreen = () => {
           onClick={() => {
             sendMessage({
               variables: {
-                receiverId: +id,
+                receiverId: id ? +id : 0,
                 text,
               },
             });

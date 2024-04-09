@@ -1,15 +1,15 @@
 export interface IAuthScreen {
-    setLoggedIn: () => boolean
+    setLoggedIn: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IHomeProps {
-    setLoggedIn: () => boolean
+    setLoggedIn: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface ISideBarProps {
-    setLoggedIn: () => void
+    setLoggedIn: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IAuthScreenProps {
-    setLoggedIn: () => boolean
+    setLoggedIn: Dispatch<SetStateAction<boolean>>;
 }

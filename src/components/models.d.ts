@@ -17,5 +17,5 @@ export type TypeItem = {
 export interface IMessage {
     text: string;
     createdAt: string;
-    receiverId: string | undefined;
+    receiverId: string;
 }

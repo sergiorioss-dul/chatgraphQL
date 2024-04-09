@@ -34,8 +34,7 @@ export const ChatScreen = () => {
 
   useSubscription(MESSAGE_SUB, {
     onSubscriptionData({ subscriptionData: { data } }) {
-      // eslint-disable-next-line
-      setMessages((prevMessages) => [...prevMessages, data.messageAdded]);
+      setMessages((prevMessages): any => [...prevMessages, data.messageAdded]);
     },
   });
 

@@ -70,7 +70,7 @@ export const ChatScreen = () => {
         }}
       >
         {loading ? (
-          <Typography variant="h6">loading chats</Typography>
+          <Typography variant="h6">loading chats...</Typography>
         ) : (
           messages.map((msg: IMessage, index) => {
             return (

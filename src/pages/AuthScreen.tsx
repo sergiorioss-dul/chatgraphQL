@@ -82,7 +82,7 @@ export const AuthScreen: FC<IAuthScreen> = ({ setLoggedIn }) => {
         <Stack direction="column" spacing={2} sx={{ width: '400px' }}>
           {signUpData && (
             <Alert severity="success">
-              Welcome {signUpData.signupUser.firstName}
+              Welcome {signUpData.signupUser.firstName} | 👽
             </Alert>
           )}
           {e1 && <Alert severity="error">{e1.message}</Alert>}
